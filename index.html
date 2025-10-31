@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Start VWO SmartCode --> 
+<script referrerPolicy="no-referrer-when-downgrade" src="https://dev.visualwebsiteoptimizer.com/lib/30000283.js" id="vwoCode"></script> 
+<!-- End VWO SmartCode -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPA Demo - Form on Home Page</title>
+  <style>
+    :root {
+      --accent: #2563eb;
+      --muted: #6b7280;
+      --bg: #f3f4f6;
+      --card: #fff;
+      --radius: 12px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #111;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--accent), #153e9d);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav button {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    nav button.active {
+      background: #fff;
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .page {
+      background: var(--card);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    input, textarea, select {
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 0.6rem;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mini SPA with Form on Home</h1>
+    <nav>
+      <button class="nav" data-target="home">Home</button>
+      <button class="nav" data-target="features">Features</button>
+      <button class="nav" data-target="about">About</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home (Form Page) -->
+    <section id="home" class="page">
+      <h2>Contact / Feedback Form</h2>
+      <p class="muted">This form appears on the home page. Fill it out and hit submit!</p>
+
+      <form id="contactForm">
+        <label>
+          Name:
+          <input type="text" id="name" placeholder="Your full name" required />
+        </label>
+        <label>
+          Email:
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Subject:
+          <select id="subject">
+            <option value="feedback">Feedback</option>
+            <option value="support">Support</option>
+            <option value="bug">Bug Report</option>
+          </select>
+        </label>
+        <label>
+          Message:
+          <textarea id="message" placeholder="Type your message..." required></textarea>
+        </label>
+        <div>
+          <button class="btn" type="submit">Submit</button>
+          <button class="btn secondary" type="button" id="clearForm">Clear</button>
+        </div>
+      </form>
+
+      <div id="formResponse"></div>
+
+      <div class="grid" style="margin-top:1.5rem;">
+        <div class="box">
+          <h3>Fast</h3>
+          <p>Instant client-side routing, no reloads.</p>
+        </div>
+        <div class="box">
+          <h3>Simple</h3>
+          <p>Pure HTML + JS + CSS. No dependencies.</p>
+        </div>
+        <div class="box">
+          <h3>Reusable</h3>
+          <p>Use this structure to build real projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Page -->
+    <section id="features" class="page" hidden>
+      <h2>App Features</h2>
+      <p>This demo shows how to build a single-page app (SPA) using only HTML, CSS, and JavaScript.</p>
+      <div class="grid">
+        <div class="box">
+          <h3>Routing</h3>
+          <p>Each section acts like a page, controlled by JS.</p>
+        </div>
+        <div class="box">
+          <h3>Dynamic Content</h3>
+          <p>Buttons, forms, and components are interactive.</p>
+        </div>
+        <div class="box">
+          <h3>Responsive</h3>
+          <p>Works on both desktop and mobile browsers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page" hidden>
+      <h2>About This Project</h2>
+      <p>This simple SPA demonstrates how to:</p>
+      <ul>
+        <li>Use buttons for navigation without page reloads</li>
+        <li>Include a working contact form on the first page</li>
+        <li>Manage UI with JavaScript only (no frameworks)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>© 2025 Demo SPA — Form First Layout</footer>
+
+  <script>
+    // SPA Navigation Logic
+    const navButtons = document.querySelectorAll(".nav");
+    const pages = document.querySelectorAll(".page");
+
+    function showPage(id) {
+      pages.forEach(p => p.hidden = true);
+      document.getElementById(id).hidden = false;
+      navButtons.forEach(btn =>
+        btn.classList.toggle("active", btn.dataset.target === id)
+      );
+      history.pushState({}, "", "#" + id);
+    }
+
+    navButtons.forEach(btn => {
+      btn.addEventListener("click", () => showPage(btn.dataset.target));
+    });
+
+    window.addEventListener("load", () => {
+      const page = location.hash.replace("#", "") || "home";
+      showPage(page);
+    });
+
+    window.addEventListener("popstate", () => {
+      const page = location.hash.replace("#", "") || "home";
+      showPage(page);
+    });
+
+    // Form Logic
+    const form = document.getElementById("contactForm");
+    const responseDiv = document.getElementById("formResponse");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        responseDiv.innerHTML = `<div class="success" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;">Please fill all required fields.</div>`;
+        return;
+      }
+
+      const data = { name, email, message };
+      localStorage.setItem("formData", JSON.stringify(data));
+
+      responseDiv.innerHTML = `<div class="success">Thank you, ${name}! Your message was saved (demo only).</div>`;
+      form.reset();
+    });
+
+    document.getElementById("clearForm").addEventListener("click", () => {
+      form.reset();
+      responseDiv.innerHTML = "";
+    });
+  </script>
+</body>
+</html>
